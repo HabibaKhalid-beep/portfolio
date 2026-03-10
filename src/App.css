@@ -1,0 +1,146 @@
+/* App-specific styles */
+
+/* Smooth transitions for all interactive elements */
+button, a, input, textarea {
+  transition: all 0.3s ease;
+}
+
+/* Focus states */
+input:focus, textarea:focus {
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.3);
+}
+
+/* Hover lift effect for cards */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradient text animation */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Glass morphism enhancement */
+.glass-enhanced {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Button shine effect */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-shine:hover::before {
+  left: 100%;
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(var(--border)),
+    transparent
+  );
+}
+
+/* Skill bar animation */
+@keyframes skill-fill {
+  from {
+    width: 0;
+  }
+}
+
+.skill-bar {
+  animation: skill-fill 1s ease-out forwards;
+}
+
+/* Project card overlay */
+.project-overlay {
+  background: linear-gradient(
+    to top,
+    hsl(var(--background)) 0%,
+    transparent 100%
+  );
+}
+
+/* Navigation blur enhancement */
+.nav-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Custom selection color */
+::selection {
+  background: hsl(var(--primary) / 0.3);
+  color: inherit;
+}
+
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+
+/* Loading skeleton animation */
+@keyframes skeleton {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)) 25%,
+    hsl(var(--muted-foreground) / 0.2) 50%,
+    hsl(var(--muted)) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton 1.5s infinite;
+}
